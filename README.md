@@ -1,8 +1,8 @@
 # twitter2tumblr #
 
 I love [microblogging](http://en.wikipedia.org/wiki/Microblogging) and use my
-Twitter account to share and document my interests and thoughts. It is like a
-diary to me.
+Twitter account [dhruvtv](https://twitter.com/dhruvtv) to share and document
+my interests and thoughts. It is like a diary to me.
 
 It's a diary that I'd like to go through every now and then. But with
 Twitter's API restrictions, you can only access your last 3200 tweets. The
