@@ -19,8 +19,6 @@ back up your old tweets, as many as it can.
 Download the app (has a python file and a config file).
 
 #### Twitter part ####
-#### ------------ ####
-
 Setup your Twitter developer account, get the credentials and put them in the
 config file.
 
@@ -36,8 +34,6 @@ blank. Agree to the rules, enter the CAPTCHA and create the application.
 7. Leave since_id as is. The script will use it to track progress.
 
 #### Tumblr part ####
-#### ----------- ####
-
 Setup your Tumblr developer account, get the credentials and put them in the
 config file.
 
