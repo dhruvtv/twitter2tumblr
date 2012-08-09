@@ -1,24 +1,25 @@
 # twitter2tumblr #
 
-When I tweet, I consider myself to be a microblogger. I don't post stuff like
-what I ate for breakfast etc., but thoughts that reflect my state of mind. In
-other words, my Twitter account is like a diary to me.
+I love [microblogging](http://en.wikipedia.org/wiki/Microblogging) and use my
+Twitter account to share and document my interests and thoughts. It is like a
+diary to me.
 
 It's a diary that I'd like to go through every now and then. But with
 Twitter's API restrictions, you can only access your last 3200 tweets. The
 rest are lost!
 
 This script lets you back up your tweets to Tumblr, where they are archived by
-month, year etc. and can be tagged.
+month, year etc. and can be tagged (making it a real diary!)
 
-**How is it different from [IFTTT](http://ifttt.com/recipes/search?utf8=%E2%9C%93&q=twitter+to+tumblr)?**   
+### How is it different from [IFTTT](http://ifttt.com/recipes/search?utf8=%E2%9C%93&q=twitter+to+tumblr)? ###
 With IFTTT, you can only backup your tweets *starting now*. This script will
 back up your old tweets, as many as it can.
 
-**What do I need to do?**   
+### What do I need to do? ###
 Download the app (has a python file and a config file).
 
-#### Twitter part ####
+**Twitter part**
+
 Setup your Twitter developer account, get the credentials and put them in the
 config file.
 
@@ -33,7 +34,8 @@ blank. Agree to the rules, enter the CAPTCHA and create the application.
 6. Enter your Twitter user handle against the user_handle key.
 7. Leave since_id as is. The script will use it to track progress.
 
-#### Tumblr part ####
+**Tumblr part**
+
 Setup your Tumblr developer account, get the credentials and put them in the
 config file.
 
@@ -50,8 +52,7 @@ Secret key (click 'Show' for it to be shown).
 7. Create your target Tumblr blog (if you haven't) and enter your tumblr URL
 against blog_url.
 
-**How to use the app**
-
+### How do I use the app? ###
 1. Open a shell to the containing folder.
 2. Run 'python twitter2tumblr.py'
 3. Follow the instructions on the command line.
