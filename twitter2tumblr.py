@@ -6,6 +6,10 @@ from twitter import TwitterError
 from tumblpy import Tumblpy, TumblpyError, TumblpyRateLimitError
 import urllib2
 
+# Magic numbers
+MAX_TWEETS = 3200
+TWEETS_PER_QUERY = 200
+
 config = ConfigParser.RawConfigParser()
 CONFIG_FILE = 'settings.cfg'
 
@@ -28,7 +32,7 @@ def read_tweets(api, user, since_id):
     """ reads user's tweets
     """
 
-    # fetch the next 200 tweets starting the below id
+    # fetch next 200 tweets starting the tracker id, updated in each iteration
     max_id = None
 
     # list of 'Status' objects to be populated
@@ -38,7 +42,9 @@ def read_tweets(api, user, since_id):
         new_statuses = []
         try:
             new_statuses = api.GetUserTimeline(screen_name=user,
-                count=200, include_rts=True, max_id=max_id, since_id=since_id)
+                count=TWEETS_PER_QUERY, include_rts=True, max_id=max_id,
+                # refetch the last tweet (to verify if API got all tweets correctly)
+                since_id=since_id - 1)
         except (TwitterError, urllib2.HTTPError) as e:
             print e
 
@@ -50,10 +56,20 @@ def read_tweets(api, user, since_id):
 
     print "Fetched", len(statuses), "tweets."
 
-    last_statuses = statuses[-10:]
+    if statuses > 0:
+        if statuses[-1].id != since_id:
+            if len(statuses) < MAX_TWEETS:
+                print "Expected", since_id
+                print "Got", statuses[-1].id
+                raise Exception("Query did not return all tweets. Please retry.")
 
-    for status in last_statuses:
-        print status.text, status.created_at, status.id
+        statuses.pop()
+
+        if len(statuses) >= 10:
+            last_statuses = statuses[-10:]
+
+            for status in last_statuses:
+                print status.text, status.created_at, status.id
 
     return statuses
 
